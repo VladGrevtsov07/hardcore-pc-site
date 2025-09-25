@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>HardCore PC - О компании</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script type="module" src="box.js"></script>
+</head>
+<body class="bg-gray-50 text-gray-900 flex flex-col min-h-screen">
+
+  <header class="bg-gray-900 text-white p-4 shadow-md sticky top-0 z-10">
+    <div class="container mx-auto relative flex items-center">
+      <img src="img/logo.png" alt="Логотип" class="h-20 w-auto mr-3">
+
+      <nav class="absolute left-1/2 transform -translate-x-1/2 flex items-center space-x-6">
+        <a href="index.html" class="hover:text-blue-400">Главная</a>
+        <a href="builds.html" class="hover:text-blue-400">Сборки</a>
+        <a href="about.html" class="hover:text-blue-400">О компании</a>
+      </nav>
+
+      <div id="authBox" class="ml-auto flex items-center"></div>
+    </div>
+  </header>
+
+  <main class="flex-1">
+    <section class="flex items-center justify-center p-12 bg-gray-100">
+      <div class="bg-white p-10 rounded-xl shadow-md max-w-3xl text-center">
+        <h2 class="text-4xl font-bold mb-6">О компании HardCore PC</h2>
+        <p class="text-gray-700 leading-relaxed text-lg mb-6">
+          HardCore PC — команда профессионалов, которые собирают компьютеры с 2025 года. 
+          Мы гарантируем высокое качество комплектующих, индивидуальный подход и полную гарантию на все сборки.
+        </p>
+        <img src="https://rta-mods.com/wp-content/uploads/2016/08/shopbg.jpg" 
+             alt="Сборка ПК" class="w-full h-64 object-cover rounded-lg mb-6 shadow-md">
+        <p class="text-gray-700 leading-relaxed text-lg mb-6">
+          Наша миссия — создавать мощные и надёжные компьютеры для игр, работы и любых задач. 
+          Мы следим за последними технологиями и подбираем только проверенные комплектующие.
+        </p>
+        <img src="https://avatars.mds.yandex.net/get-altay/11385005/2a000001914aa9e91490134ee260b18ab98b/orig" 
+             alt="Команда" class="w-full h-64 object-cover rounded-lg shadow-md">
+      </div>
+    </section>
+
+    <section class="py-12 bg-gray-100">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-8">Наши ценности</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="bg-white p-6 rounded-lg shadow-md text-center">
+            <img src="https://pcbros.tech/cdn/shop/products/PXL_20220407_135813056.PORTRAIT.jpg?v=1711649579&width=3979" 
+                 alt="Качество" class="w-full h-40 object-cover rounded-md mb-4">
+            <h3 class="text-xl font-semibold mb-2">Высокое качество</h3>
+            <p class="text-gray-600 mb-2">Все сборки проходят строгий контроль качества.</p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-md text-center">
+            <img src="https://pcbros.tech/cdn/shop/products/PXL_20220321_144050723.PORTRAIT.jpg?v=1711649579&width=4032" 
+                 alt="Индивидуальный подход" class="w-full h-40 object-cover rounded-md mb-4">
+            <h3 class="text-xl font-semibold mb-2">Индивидуальный подход</h3>
+            <p class="text-gray-600 mb-2">Мы учитываем ваши потребности и бюджет при сборке ПК.</p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-md text-center">
+            <img src="https://www.californiacomputer.com/wp-content/uploads/2023/04/computer-repair-los-angeles-1.jpg" 
+                 alt="Поддержка" class="w-full h-40 object-cover rounded-md mb-4">
+            <h3 class="text-xl font-semibold mb-2">Поддержка и гарантия</h3>
+            <p class="text-gray-600 mb-2">Мы предоставляем полную гарантию на все сборки и комплектующие.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-gray-900 text-gray-200 p-8 mt-10">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+      
+      <div>
+        <img src="img/logo.png" alt="Логотип" class="h-16 mb-4">
+        <p class="text-sm text-gray-400">
+          HardCore PC — собираем мощные и надёжные ПК для игр, работы и любых задач.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-3">Контакты</h3>
+        <ul class="space-y-2 text-sm">
+          <li><span class="font-semibold">Адрес:</span> г. Москва, ул. Пушкина, д. 10</li>
+          <li><span class="font-semibold">Телефон:</span> +7 (999) 123-45-67</li>
+          <li><span class="font-semibold">Email:</span> support@hardcorepc.ru</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-3">Навигация</h3>
+        <ul class="space-y-2 text-sm">
+          <li><a href="index.html" class="hover:text-blue-400">Главная</a></li>
+          <li><a href="builds.html" class="hover:text-blue-400">Сборки</a></li>
+          <li><a href="about.html" class="hover:text-blue-400">О компании</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="border-t border-gray-700 mt-8 pt-4 text-center text-gray-500 text-sm">
+      © 2025 HardCore PC. Все права защищены.
+    </div>
+  </footer>
+
+</body>
+</html>
