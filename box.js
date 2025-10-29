@@ -62,7 +62,7 @@ function loadBuilds(limit = null) {
           card.className = "bg-white p-6 rounded-lg shadow-md text-center";
 
           card.innerHTML = `
-            <img src="${build.Image}" alt="${build.Name}" class="w-full h-60 object-cover rounded-md mb-4">
+            <img src="${build.Image}" alt="${build.Name}" class="w-full h-65 object-cover rounded-md mb-4">
             <h3 class="text-xl font-semibold mb-2">${build.Name}</h3>
             <p class="text-gray-600 mb-2">${build.Description}</p>
             <p class="text-lg font-bold mb-4">${build.Price} ₽</p>

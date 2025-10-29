@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>HardCore PC — Контакты</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script type="module" src="box.js"></script>
+  <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+</head>
+<body class="bg-gray-50 text-gray-900 flex flex-col min-h-screen">
+
+  <!-- Шапка -->
+  <header class="bg-gray-900 text-white p-4 shadow-md sticky top-0 z-10">
+    <div class="container mx-auto relative flex items-center">
+      <img src="img/logo.png" alt="Логотип" class="h-20 w-auto mr-3">
+      <nav class="absolute left-1/2 transform -translate-x-1/2 flex items-center space-x-6">
+        <a href="index.html" class="hover:text-blue-400">Главная</a>
+        <a href="builds.html" class="hover:text-blue-400">Сборки</a>
+        <a href="about.html" class="hover:text-blue-400">О нас</a>
+        <a href="contact.html" class="hover:text-blue-400">Контакты</a>
+      </nav>
+      <div id="authBox" class="ml-auto flex items-center"></div>
+    </div>
+  </header>
+
+
+  <!-- Контент -->
+    <main class="flex-1 py-12 bg-gray-100">
+    <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-start">
+        
+        <!-- Левая часть: текст и контакты -->
+        <div class="flex flex-col justify-center items-center min-h-[500px] text-center">
+            <h1 class="text-4xl font-bold mb-6">Свяжитесь с нами</h1>
+            <p class="text-gray-700 mb-6">
+                У вас есть вопросы, предложения или нужна помощь с выбором сборки? 
+                Мы всегда готовы помочь! Напишите нам или позвоните — команда HardCore PC на связи 24/7.
+            </p>
+
+            <ul class="space-y-3 text-gray-800">
+                <li><span class="font-semibold">📍 Адрес:</span> г. Москва, ул. Пушкина, д. 10</li>
+                <li><span class="font-semibold">📞 Телефон:</span> +7 (999) 123-45-67</li>
+                <li><span class="font-semibold">📧 Email:</span> support@hardcorepc.ru</li>
+            </ul>
+
+            <div class="mt-6 flex space-x-4">
+                <a href="#" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition">Telegram</a>
+                <a href="#" class="bg-gray-800 hover:bg-gray-900 text-white px-4 py-2 rounded-lg transition">VK</a>
+            </div>
+        </div>
+
+
+        <!-- Правая часть: форма -->
+        <div class="bg-white p-8 rounded-2xl shadow-lg space-y-4">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800">Форма обратной связи</h2>
+        <form class="space-y-4">
+            <div>
+            <label class="block mb-1 font-medium">Ваше имя</label>
+            <input type="text" placeholder="Введите имя" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
+            </div>
+
+            <div>
+            <label class="block mb-1 font-medium">Email</label>
+            <input type="email" placeholder="you@example.com" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
+            </div>
+
+            <div>
+            <label class="block mb-1 font-medium">Сообщение</label>
+            <textarea rows="4" placeholder="Введите ваше сообщение..." class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"></textarea>
+            </div>
+
+            <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-medium transition">
+            Отправить сообщение
+            </button>
+        </form>
+        </div>
+    </div>
+
+    <!-- Карта на всю ширину контейнера -->
+    <div class="max-w-6xl mx-auto px-4 mt-10">
+        <div id="map" class="w-full h-[600px] rounded-2xl overflow-hidden shadow-lg"></div>
+        <script>
+        ymaps.ready(init);
+        function init() {
+            var map = new ymaps.Map("map", {
+            center: [55.752004, 37.617734], // Москва, ул. Пушкина, д. 10 (примерно)
+            zoom: 15,
+            controls: ['zoomControl', 'fullscreenControl']
+            });
+
+            var placemark = new ymaps.Placemark([55.752004, 37.617734], {
+            balloonContent: '<strong>HardCore PC</strong><br>г. Москва, ул. Пушкина, д. 10'
+            }, {
+            preset: 'islands#blueDotIcon'
+            });
+
+            map.geoObjects.add(placemark);
+        }
+        </script>
+    </div>
+    </main>
+
+
+  <!-- Подвал -->
+  <footer class="bg-gray-900 text-gray-200 p-8 mt-10">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+      <div>
+        <img src="img/logo.png" alt="Логотип" class="h-16 mb-4">
+        <p class="text-sm text-gray-400">
+          HardCore PC — собираем мощные и надёжные ПК для игр, работы и любых задач.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-3">Контакты</h3>
+        <ul class="space-y-2 text-sm">
+          <li><span class="font-semibold">Адрес:</span> г. Москва, ул. Пушкина, д. 10</li>
+          <li><span class="font-semibold">Телефон:</span> +7 (999) 123-45-67</li>
+          <li><span class="font-semibold">Email:</span> support@hardcorepc.ru</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-3">Навигация</h3>
+        <ul class="space-y-2 text-sm">
+          <li><a href="index.html" class="hover:text-blue-400">Главная</a></li>
+          <li><a href="builds.html" class="hover:text-blue-400">Сборки</a></li>
+          <li><a href="about.html" class="hover:text-blue-400">О компании</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="border-t border-gray-700 mt-8 pt-4 text-center text-gray-500 text-sm">
+      © 2025 HardCore PC. Все права защищены.
+    </div>
+  </footer>
+
+</body>
+</html>

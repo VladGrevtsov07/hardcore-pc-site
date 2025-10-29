@@ -1,21 +1,7 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
-import { getDatabase, ref, get, set } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-database.js";
+import { auth } from "./firebase-config.js";
+import { createUserWithEmailAndPassword, updateProfile } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
 
-const firebaseConfig = {
-  apiKey: "AIzaSyBVKSZIxjyy2qg3_0qH2FHz1KZYjUSx8WA",
-  authDomain: "web-mods-8c679.firebaseapp.com",
-  databaseURL: "https://web-mods-8c679-default-rtdb.firebaseio.com",
-  projectId: "web-mods-8c679",
-  storageBucket: "web-mods-8c679.firebasestorage.app",
-  messagingSenderId: "403594167177",
-  appId: "1:403594167177:web:0095523105c7b1bc46d758",
-  measurementId: "G-VWMRDPNV87"
-};
-
-const app = initializeApp(firebaseConfig);
-const db = getDatabase(app);
-
-async function registerUser() {
+document.getElementById("registerBtn").addEventListener("click", async () => {
   const email = document.getElementById("email").value.trim();
   const password = document.getElementById("password").value.trim();
   const confirmPassword = document.getElementById("confirm-password").value.trim();
@@ -30,37 +16,28 @@ async function registerUser() {
     return;
   }
 
-  try {
-    const usersRef = ref(db, "Authorization");
-    const snapshot = await get(usersRef);
-    const users = snapshot.val() || {};
-
-    const exists = Object.values(users).some(u => u.Login.toLowerCase() === email.toLowerCase());
-    if (exists) {
-      alert("Такой email уже зарегистрирован!");
-      return;
-    }
-
-    let newId = 1;
-    if (Object.keys(users).length > 0) {
-      const ids = Object.values(users).map(u => u.ID_Authorization || 0);
-      newId = Math.max(...ids) + 1;
-    }
-
-    await set(ref(db, "Authorization/" + newId), {
-      ID_Authorization: newId,
-      ID_Post: 2,
-      Login: email,
-      Password: password
-    });
-
-    localStorage.setItem("userEmail", email);
-
-    window.location.href = "index.html";
-  } catch (err) {
-    console.error("Ошибка регистрации:", err);
-    alert("Ошибка при регистрации, попробуйте позже!");
+  if (password.length < 6) {
+    alert("Пароль должен содержать не менее 6 символов!");
+    return;
   }
-}
 
-document.getElementById("registerBtn").addEventListener("click", registerUser);
+  try {
+    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+    const user = userCredential.user;
+
+    // Можно задать отображаемое имя
+    await updateProfile(user, { displayName: email.split('@')[0] });
+
+    alert("Регистрация прошла успешно!");
+    window.location.href = "index.html";
+  } catch (error) {
+    if (error.code === "auth/email-already-in-use") {
+      alert("Этот email уже зарегистрирован!");
+    } else if (error.code === "auth/invalid-email") {
+      alert("Некорректный email!");
+    } else {
+      alert("Ошибка регистрации: " + error.message);
+    }
+    console.error(error);
+  }
+});
