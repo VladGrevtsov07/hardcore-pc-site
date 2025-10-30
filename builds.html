@@ -1,83 +1,62 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="index, follow">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="index, follow" />
   <title>Сборки ПК — HardCore PC</title>
   <meta name="description" content="Популярные игровые сборки от HardCore PC: подбирайте мощные компьютеры для игр, дизайна и работы. Качественные комплектующие и гарантии.">
-
-  <link rel="canonical" href="https://vladgrevtsov07.github.io/hardcore-pc-site/pc-builds.html">
-
-  <meta property="og:type" content="article">
-  <meta property="og:title" content="Сборки ПК — HardCore PC">
-  <meta property="og:description" content="Выбирайте готовые и кастомные сборки ПК от HardCore PC. Производительность, стиль, надёжность.">
-  <meta property="og:url" content="https://vladgrevtsov07.github.io/hardcore-pc-site/pc-builds.html">
-  <meta property="og:image" content="https://vladgrevtsov07.github.io/hardcore-pc-site/img/builds-preview.jpg">
-
+  <link rel="canonical" href="https://vladgrevtsov07.github.io/hardcore-pc-site/builds.html">
   <link rel="icon" href="img/mini-icon.png" type="image/png">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script type="module" src="box.js"></script>
+  <link rel="preload" as="image" href="img/logo.png">
+  <script src="https://cdn.tailwindcss.com" defer></script>
+  <script type="module" src="box.js" defer></script>
 </head>
+
 <body class="bg-gray-50 text-gray-900 flex flex-col min-h-screen">
-
+  <!-- Header -->
   <header class="bg-gray-900 text-white p-4 shadow-md sticky top-0 z-10">
-  <div class="container mx-auto flex items-center justify-between">
-    <div class="flex items-center space-x-3">
-      <img src="img/logo.png" alt="Логотип HardCore PC" class="h-14 w-auto" loading="lazy">
-      <h1 class="text-xl font-bold">HardCore PC</h1>
+    <div class="container mx-auto flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <img src="img/logo.png" alt="Логотип HardCore PC" width="70" height="70" loading="lazy" class="h-16 w-auto">
+        <h1 class="text-xl font-bold">HardCore PC</h1>
+      </div>
+      <button id="menu-btn" class="md:hidden flex flex-col justify-center items-center p-2" aria-label="Открыть меню">
+        <span class="block w-6 h-0.5 bg-white mb-1"></span>
+        <span class="block w-6 h-0.5 bg-white mb-1"></span>
+        <span class="block w-6 h-0.5 bg-white"></span>
+      </button>
+      <nav id="menu" class="hidden md:flex md:items-center flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6 bg-gray-900 md:bg-transparent p-4 md:p-0 rounded-lg">
+        <a href="index.html" class="hover:text-blue-400">Главная</a>
+        <a href="builds.html" class="hover:text-blue-400">Сборки</a>
+        <a href="about.html" class="hover:text-blue-400">О нас</a>
+        <a href="contact.html" class="hover:text-blue-400">Контакты</a>
+        <div id="authBox" class="ml-auto flex items-center"></div>
+      </nav>
     </div>
+  </header>
 
-    <!-- Кнопка гамбургер -->
-    <button id="menu-btn"
-      class="md:hidden flex flex-col justify-center items-center min-w-[44px] min-h-[44px] p-2 focus:outline-none"
-      aria-label="Открыть меню">
-      <span class="block w-6 h-0.5 bg-white mb-1 transition-all"></span>
-      <span class="block w-6 h-0.5 bg-white mb-1 transition-all"></span>
-      <span class="block w-6 h-0.5 bg-white transition-all"></span>
-    </button>
-
-    <!-- Навигация -->
-    <nav id="menu"
-      class="hidden md:flex md:items-center space-y-4 md:space-y-0 md:space-x-6 text-sm md:text-base flex-col md:flex-row bg-gray-900 md:bg-transparent p-4 md:p-0 rounded-lg"
-      aria-label="Главная навигация">
-      <a href="index.html" class="hover:text-blue-400">Главная</a>
-      <a href="builds.html" class="hover:text-blue-400">Сборки</a>
-      <a href="about.html" class="hover:text-blue-400">О нас</a>
-      <a href="contact.html" class="hover:text-blue-400">Контакты</a>
-
-      <!-- Кнопка входа -->
-      <div id="authBox" class="ml-auto flex items-center"></div>
-    </nav>
-  </div>
-</header>
-
-
-  <main class="flex-1 p-10 bg-gray-100">
+  <!-- Main -->
+  <main class="flex-1 px-4 md:px-10 py-10 bg-gray-100">
     <h2 class="text-3xl font-bold mb-6 text-center">Все сборки</h2>
-    <div id="builds-container" class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto"></div>
+    <div id="builds-container" class="grid sm:grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto"></div>
   </main>
 
+  <!-- Footer -->
   <footer class="bg-gray-900 text-gray-200 p-8 mt-10">
-    <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
-      
+    <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 px-4">
       <div>
-        <img src="img/logo.png" alt="Логотип" class="h-16 mb-4">
-        <p class="text-sm text-gray-400">
-          HardCore PC — собираем мощные и надёжные ПК для игр, работы и любых задач.
-        </p>
+        <img src="img/logo.png" alt="Логотип" width="90" height="90" class="h-16 mb-4" loading="lazy">
+        <p class="text-sm text-gray-400">HardCore PC — собираем мощные и надёжные ПК для игр, работы и любых задач.</p>
       </div>
-
       <div>
         <h3 class="text-lg font-semibold mb-3">Контакты</h3>
         <ul class="space-y-2 text-sm">
-          <li><span class="font-semibold">Адрес:</span> г. Москва, ул. Пушкина, д. 10</li>
-          <li><span class="font-semibold">Телефон:</span> +7 (999) 123-45-67</li>
-          <li><span class="font-semibold">Email:</span> support@hardcorepc.ru</li>
+          <li><strong>Адрес:</strong> г. Москва, ул. Пушкина, д. 10</li>
+          <li><strong>Телефон:</strong> +7 (999) 123-45-67</li>
+          <li><strong>Email:</strong> support@hardcorepc.ru</li>
         </ul>
       </div>
-
       <div>
         <h3 class="text-lg font-semibold mb-3">Навигация</h3>
         <ul class="space-y-2 text-sm">
@@ -86,14 +65,8 @@
           <li><a href="about.html" class="hover:text-blue-400">О компании</a></li>
         </ul>
       </div>
-
     </div>
-
-    <div class="border-t border-gray-700 mt-8 pt-4 text-center text-gray-500 text-sm">
-      © 2025 HardCore PC. Все права защищены.
-    </div>
+    <div class="border-t border-gray-700 mt-8 pt-4 text-center text-gray-500 text-sm">© 2025 HardCore PC. Все права защищены.</div>
   </footer>
-
-
 </body>
 </html>
