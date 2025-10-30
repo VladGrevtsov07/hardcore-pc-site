@@ -14,12 +14,39 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 const menuBtn = document.getElementById('menu-btn');
-    const menu = document.getElementById('menu');
+const menu = document.getElementById('menu');
+const links = menu.querySelectorAll('a');
 
-    menuBtn.addEventListener('click', () => {
-      menu.classList.toggle('hidden');
-      menuBtn.classList.toggle('open');
-    });
+// Функция для закрытия меню
+function closeMenu() {
+  menu.classList.add('hidden');
+  menuBtn.classList.remove('open');
+}
+
+// Обработчик клика по гамбургеру
+menuBtn.addEventListener('click', () => {
+  menu.classList.toggle('hidden');
+  menuBtn.classList.toggle('open');
+});
+
+// Закрытие меню при клике на ссылку (для мобильных)
+links.forEach(link => {
+  link.addEventListener('click', () => {
+    if (window.innerWidth < 768) {
+      closeMenu();
+    }
+  });
+});
+
+// Закрытие меню при изменении размера окна (если перешли с мобильного на десктоп)
+window.addEventListener('resize', () => {
+  if (window.innerWidth >= 768) {
+    menu.classList.remove('hidden');
+  } else {
+    menu.classList.add('hidden');
+    menuBtn.classList.remove('open');
+  }
+});
 
 document.addEventListener("DOMContentLoaded", () => {
   const authBox = document.getElementById("authBox");
