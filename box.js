@@ -13,6 +13,13 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
+const menuBtn = document.getElementById('menu-btn');
+    const menu = document.getElementById('menu');
+
+    menuBtn.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+      menuBtn.classList.toggle('open');
+    });
 
 document.addEventListener("DOMContentLoaded", () => {
   const authBox = document.getElementById("authBox");
