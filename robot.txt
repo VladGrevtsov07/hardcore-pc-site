@@ -1,8 +1,9 @@
 User-agent: *
+
 Allow: /index.html
 Allow: /builds.html
 Allow: /about.html
-Allow: /contacts.html
+Allow: /contact.html
 
 Disallow: /authorization.html
 Disallow: /registration.html
