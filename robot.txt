@@ -1,11 +1,6 @@
 User-agent: *
-
-Allow: /index.html
-Allow: /builds.html
-Allow: /about.html
-Allow: /contact.html
-
+Allow: /
 Disallow: /authorization.html
 Disallow: /registration.html
 
-Sitemap: https://vladgrevtsov07.github.io/hardcore-pc-site/sitemap.xml
+Sitemap: https://hardcore-pc.vercel.app/sitemap.xml
