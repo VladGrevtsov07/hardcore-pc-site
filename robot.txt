@@ -1,11 +1,4 @@
 User-agent: *
-
-Allow: /index.html
-Allow: /builds.html
-Allow: /about.html
-Allow: /contact.html
-
-Disallow: /authorization.html
-Disallow: /registration.html
-
+Disallow: 
+Allow: /
 Sitemap: /sitemap.xml
